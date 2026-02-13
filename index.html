@@ -1,0 +1,1031 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scientific Horizons of Innovative Technologies (S. H. I. T.)</title>
+  <meta name="description" content="Scientific Horizons of Innovative Technologies (S. H. I. T.) — Open Access - No APC - Irregular issues" />
+  <style>
+    :root{
+      /* Brown-ish gradient theme */
+      --bg: #0f0f10;
+      --surface: rgba(255,255,255,.08);
+      --surface-2: rgba(255,255,255,.12);
+      --line: rgba(255,255,255,.14);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --muted2: rgba(255,255,255,.55);
+
+      --brand-1: #7a4a2a;   /* cocoa */
+      --brand-2: #b97a43;   /* caramel */
+      --brand-3: #e0b07a;   /* sand */
+      --accent:  #ffcc8a;   /* warm highlight */
+      --link:    #ffd7a6;
+
+      --shadow: 0 10px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 26px;
+
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 800px at 15% 10%, rgba(185,122,67,.35), transparent 60%),
+        radial-gradient(900px 700px at 85% 0%, rgba(224,176,122,.25), transparent 55%),
+        radial-gradient(900px 700px at 70% 90%, rgba(122,74,42,.25), transparent 55%),
+        linear-gradient(180deg, #0b0b0c 0%, #101012 40%, #0b0b0c 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Top utility bar */
+    .topbar{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter: blur(14px);
+      background: rgba(10,10,11,.55);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 240px;
+    }
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand-2), var(--brand-1));
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      display:grid; place-items:center;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .brand h1{
+      font-size:14px; margin:0;
+      font-weight:800;
+      line-height:1.1;
+    }
+    .brand small{
+      display:block;
+      color: var(--muted2);
+      font-size:12px;
+      margin-top:2px;
+      font-weight:600;
+      letter-spacing:.2px;
+    }
+
+    .top-actions{
+      display:flex; align-items:center; gap:10px;
+    }
+
+    .pill{
+      display:flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      font-size:13px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+    }
+    .pill input{
+      width:240px;
+      background: transparent;
+      border:0; outline:0;
+      color: var(--text);
+      font-size:13px;
+    }
+    .pill input::placeholder{color: rgba(255,255,255,.45)}
+    .btn{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight:700;
+      font-size:13px;
+      cursor:pointer;
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09)}
+    .btn.primary{
+      border-color: rgba(255,204,138,.35);
+      background: linear-gradient(135deg, rgba(185,122,67,.55), rgba(122,74,42,.55));
+    }
+
+    /* Hero */
+    .hero{
+      padding:28px 0 10px;
+    }
+    .hero-card{
+      border-radius: var(--radius2);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(120deg, rgba(122,74,42,.70) 0%, rgba(185,122,67,.55) 55%, rgba(224,176,122,.30) 100%),
+        radial-gradient(700px 340px at 15% 10%, rgba(255,204,138,.22), transparent 60%);
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.4fr .7fr;
+      gap: 18px;
+      padding: 26px;
+      align-items: stretch;
+    }
+    .hero-title{
+      margin:0;
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing:-.3px;
+    }
+    .hero-sub{
+      margin:10px 0 0;
+      color: rgba(255,255,255,.86);
+      max-width: 62ch;
+      font-weight:600;
+    }
+    .badge-row{
+      margin-top:14px;
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .badge{
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.16);
+      color: rgba(255,255,255,.88);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .metrics{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      align-content:start;
+    }
+    .metric{
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+    .metric .k{
+      font-size: 20px; font-weight:900;
+      letter-spacing:-.2px;
+    }
+    .metric .l{
+      margin-top:4px;
+      color: rgba(255,255,255,.78);
+      font-weight:700;
+      font-size:12px;
+    }
+    .metric .s{
+      margin-top:6px;
+      color: rgba(255,255,255,.65);
+      font-size:12px;
+    }
+
+    /* Layout blocks */
+    .section{padding: 18px 0;}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items:start;
+    }
+    .card{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.20);
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size: 18px;
+      letter-spacing:-.2px;
+    }
+    .card p{
+      margin: 8px 0;
+      color: var(--muted);
+    }
+    .card .muted{color: var(--muted2)}
+    .card .linkrow{margin-top:10px}
+    .card .linkrow a{font-weight:800}
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* Publishing options */
+    .option{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .option h3{
+      margin:0;
+      font-size:14px;
+      letter-spacing:.1px;
+    }
+    .option p{
+      margin:8px 0 0;
+      font-size:13px;
+      color: rgba(255,255,255,.76);
+    }
+
+    /* Insights stats row */
+    .insights{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .insight{
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .insight .num{font-size: 22px; font-weight: 900}
+    .insight .lab{margin-top:6px; color: rgba(255,255,255,.78); font-weight:800; font-size:12px}
+    .insight .sub{margin-top:6px; color: rgba(255,255,255,.60); font-size:12px}
+
+    /* Editors strip */
+    .strip{
+      border-radius: var(--radius2);
+      padding: 18px;
+      background: linear-gradient(135deg, rgba(122,74,42,.55), rgba(185,122,67,.35));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+    }
+    .strip-head{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      margin-bottom: 14px;
+    }
+    .strip-head h2{margin:0; font-size:14px; letter-spacing:.18em; text-transform:uppercase}
+    .strip-head a{font-weight:900; font-size:13px}
+
+    .editors{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .person{
+      display:flex; gap:12px; align-items:center;
+      padding: 12px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+    }
+    .avatar{
+      width:52px; height:52px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), rgba(0,0,0,.18)),
+                  linear-gradient(135deg, rgba(224,176,122,.70), rgba(122,74,42,.55));
+      border: 1px solid rgba(255,255,255,.18);
+      flex: 0 0 auto;
+    }
+    .person b{display:block; font-size:14px}
+    .person span{display:block; font-size:12px; color: rgba(255,255,255,.70); margin-top:2px}
+
+    /* Articles */
+    .tabs{
+      display:flex; flex-wrap:wrap;
+      gap:8px;
+      margin: 4px 0 14px;
+    }
+    .tab{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.82);
+      font-weight:800;
+      font-size:12px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .tab.active{
+      background: rgba(255,204,138,.18);
+      border-color: rgba(255,204,138,.28);
+      color: rgba(255,255,255,.92);
+    }
+
+    .article-list{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .article{
+      display:flex;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .article .left{
+      min-width: 0;
+    }
+    .tag{
+      display:inline-flex; align-items:center; gap:6px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.78);
+      font-size:11px;
+      font-weight:800;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background: rgba(120,255,180,.85);
+      box-shadow: 0 0 0 3px rgba(120,255,180,.15);
+    }
+    .article h3{
+      margin:10px 0 0;
+      font-size:15px;
+      letter-spacing:-.2px;
+    }
+    .article p{
+      margin:6px 0 0;
+      color: rgba(255,255,255,.70);
+      font-size:13px;
+      max-width: 72ch;
+    }
+    .article .meta{
+      color: rgba(255,255,255,.56);
+      font-size:12px;
+      margin-top:8px;
+    }
+    .article .right{
+      text-align:right;
+      color: rgba(255,255,255,.65);
+      font-size:12px;
+      flex: 0 0 auto;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 8px;
+    }
+    .mini{
+      padding: 8px 10px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      font-weight:800;
+    }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 38px;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+    }
+    .footgrid{
+      display:grid;
+      grid-template-columns: 1.2fr .2fr;
+      gap: 16px;
+      align-items:start;
+    }
+    .fine{
+      margin-top: 8px;
+      color: rgba(255,255,255,.45);
+    }
+    .hr{
+      height:1px; background: rgba(255,255,255,.08);
+      margin: 18px 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero-inner{grid-template-columns: 1fr}
+      .grid{grid-template-columns: 1fr}
+      .insights{grid-template-columns: 1fr 1fr}
+      .editors{grid-template-columns: 1fr}
+      .pill input{width: 160px}
+    }
+    @media (max-width: 520px){
+      .topbar-inner{flex-wrap:wrap}
+      .brand{min-width:unset}
+      .pill{width:100%}
+      .pill input{width: 100%}
+      .metrics{grid-template-columns: 1fr}
+      .insights{grid-template-columns: 1fr}
+      .footgrid{grid-template-columns: 1fr}
+      .article{flex-direction:column}
+      .article .right{text-align:left; flex-direction:row; flex-wrap:wrap}
+    }
+    /* Drawer (Aims & Scope) */
+    .drawer-overlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(2px);
+      display: none;
+      z-index: 60;
+    }
+    .drawer{
+      position: fixed;
+      top: 0;
+      right: -520px;
+      width: min(520px, 92vw);
+      height: 100vh;
+      background: rgba(18,18,20,.96);
+      border-left: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      transition: right .25s ease;
+      z-index: 70;
+      display: flex;
+      flex-direction: column;
+    }
+    .drawer.open{ right: 0; }
+
+    .drawer-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 18px 18px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .drawer-head h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -.2px;
+    }
+    .drawer-close{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .drawer-body{
+      padding: 14px 18px 22px;
+      overflow: auto;
+    }
+    .drawer-body p{ color: rgba(255,255,255,.78); }
+    .drawer-body h3{
+      margin: 16px 0 8px;
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.86);
+    }
+    .drawer-body ul{
+      margin: 8px 0 0 18px;
+      color: rgba(255,255,255,.75);
+    }
+    .drawer-body li{ margin: 8px 0; }
+
+    body.drawer-lock{ overflow: hidden; }
+  </style>
+
+</head>
+
+<body>
+  <!-- Top navigation -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="logo">SH</div>
+          <div>
+            <h1 data-i18n="upleftTitle">Scientific Horizons and Innovative Technologies</h1>
+            <small data-i18n="daoHangXiaoZi">Open Access · No APC · Irregular issues</small>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <button class="btn primary" data-i18n="submitBtn" onclick="location.href='mailto:shit_journal@163.com'">
+          Submit your article ↗
+          </button>
+          <button class="btn" data-i18n="guideBtn" onclick="location.href='#authors'">Guide for authors</button>
+          <button class="btn" id="langBtn" onclick="toggleLang()">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="hero-inner">
+          <div>
+            <h2 class="hero-title" data-i18n="heroTitle">Scientific Horizons and Innovative Technologies <span style="opacity:.9">(S.H.I.T.)</span></h2>
+            <p class="hero-sub" data-i18n="heroSub">
+              SHIT is an international open-access academic journal dedicated to the dissemination of innovative findings, unconventional explorations, instructive detours, and reflective insights encountered throughout the scientific research process.
+            </p>
+            <div class="badge-row">
+              <div class="badge" data-i18n="OA">Open Access</div>
+              <div class="badge" data-i18n="noAPC">No Article Processing Charges</div>
+              <div class="badge" data-i18n="scienceTech">Science · Engineering · Technology</div>
+            </div>
+          </div>
+
+          <!-- Metrics (placeholders) -->
+          <div class="metrics" aria-label="Journal metrics (placeholders)">
+            <div class="metric">
+              <div class="k">—1</div>
+              <div class="l">CiteScore</div>
+            </div>
+            <div class="metric">
+              <div class="k">114 514</div>
+              <div class="l" data-i18n="impactFactor">Impact Factor</div>
+            </div>
+            <div class="metric">
+              <div class="k">π</div>
+              <div class="l" data-i18n="SCI">APC</div>
+            </div>
+            <div class="metric">
+              <div class="k" data-i18n="publishingCadenceValue">Rolling</div>
+              <div class="l" data-i18n="publishingCadence">Publishing cadence</div>          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main sections -->
+  <main class="wrap">
+
+    <!-- About + quick links -->
+    <section class="section grid" id="about">
+      <div class="card">
+        <h2 data-i18n="aboutTitle">About the journal</h2>
+        <p data-i18n="aboutText">
+          SHIT is an open-access journal devoted to sharing both breakthroughs and the valuable reality behind them:
+          unconventional explorations, negative results of genuine value, robust methods, and honest accounts of “what went wrong”
+          when such accounts can save others time, effort, and uncertainty.
+        </p>
+        <div class="linkrow">
+          <a href="javascript:void(0)" onclick="openDrawer()" data-i18n="viewScope">View full aims & scope →</a>
+        </div>
+      </div>
+
+      <div class="card" id="submit">
+        <h2 data-i18n="submission">Submit your article</h2>
+        <p data-i18n="submitText">
+          Please send a single archive containing the editable source files
+          (e.g., LaTeX/Word + figures) to:
+        </p>
+        <p style="margin:10px 0 0; font-weight:900; font-size:15px;">
+          <a href="mailto:shit_journal@163.com">shit_journal@163.com</a>
+        </p>
+        <p class="muted" style="margin-top:10px;" data-i18n="submitMuted">
+          Rolling submissions · Editorial screening · Lightweight review.
+        </p>
+      </div>
+    </section>
+
+    <!-- Publishing options -->
+    <section class="section" id="authors">
+      <div class="card">
+        <h2 data-i18n="publishingOptions">Article publishing options</h2>
+        <div class="two-col">
+          <div class="option">
+            <h3 data-i18n="OA">Open Access</h3>
+            <p><b data-i18n="pubAPC">Free of Article Processing Charge (APC)</b></p>
+            <p class="muted" data-i18n="pubAccess">All published content is freely accessible.</p>
+          </div>
+          <div class="option">
+            <h3 data-i18n="subscription">Subscription</h3>
+            <p data-i18n="subsNA">Not applicable.</p>
+            <p class="muted" data-i18n="subscriptionMuted">SHIT is fully open access by design.</p>
+          </div>
+        </div>
+
+        <div class="insights" aria-label="Journal insights (placeholders)">
+          <div class="insight">
+            <div class="num">24h</div>
+            <div class="lab" data-i18n="timeDecision">Submission to first decision</div>
+          </div>
+          <div class="insight">
+            <div class="num">24h+1min</div>
+            <div class="lab" data-i18n="timeReview">Submission to decision after review</div>
+          </div>
+          <div class="insight">
+            <div class="num">24h+2min</div>
+            <div class="lab" data-i18n="timeAcceptance">Submission to acceptance</div>
+          </div>
+          <div class="insight">
+            <div class="num">24h</div>
+            <div class="lab" data-i18n="timePublication">Acceptance to online publication</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editors strip -->
+    <section class="section" id="editors">
+      <div class="strip">
+        <div class="strip-head">
+          <h2 data-i18n="editorChef">Editors-in-Chief</h2>
+          <!--<a href="#board"data-i18n="editorAll">View full editorial board →</a>-->
+        </div>
+
+        <div class="editors">
+          <div class="person">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <b>Zixuan Li</b>
+              <span> Compiègne · France</span>
+            </div>
+          </div>
+          <div class="person">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <b>Weer Hiring</b>
+              <span>Affiliation · City · Country</span>
+            </div>
+          </div>
+          <div class="person">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <b>Annie One</b>
+              <span>Affiliation · City · Country</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles -->
+    <section class="section" id="articles">
+      <div class="card">
+        <h2 data-i18n="atc">Articles</h2>
+        <div class="tabs" role="tablist" aria-label="Article tabs">
+          <div class="tab active" data-tab="latest" role="tab" aria-selected="true" data-i18n="atcLatest">Latest published</div>
+          <div class="tab" data-tab="cited" role="tab" aria-selected="false" data-i18n="atcCited">Top cited</div>
+          <div class="tab" data-tab="downloaded" role="tab" aria-selected="false" data-i18n="atcDownloaded">Most downloaded</div>
+          <div class="tab" data-tab="popular" role="tab" aria-selected="false" data-i18n="atcPopular">Most popular</div>
+        </div>
+
+        <div id="articleContainer" class="article-list" aria-live="polite"></div>
+
+        <div class="hr"></div>
+        <p class="muted" id="scope" data-i18n="declaration">
+          Declaration: S.H.I.T. is, in essence, a piece of shit within the academic universe. None of the articles herein are intended to be read with logic, rigor, or full consciousness. The site assumes no responsibility for any misunderstanding, misapplication, or existential confusion arising from its content. Readers are kindly advised not to cite these works, and, if possible, not to reveal them to their supervisors. All copyrights of the content remain with the site.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footgrid">
+        <div>
+          <b data-i18n="heroTitle">Scientific Horizons in Innovation and Technology (SHIT)</b><br/>
+          <span class="fine" data-i18n="daoHangXiaoZi">Open access · No APC · Irregular issues</span>
+          <div class="fine">Contact: <a href="mailto:shit_journal@163.com">shit_journal@163.com</a></div>
+        </div>
+        <div>
+          <div class="fine">
+            <b data-i18n="footDiscoveries">Discoveries</b> · <b data-i18n="footReflections">Reflections</b><br/>
+            © <span id="year"></span> SHIT Journal
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Aims & Scope Drawer -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+
+<aside class="drawer" id="aimsDrawer" aria-hidden="true">
+  <div class="drawer-head">
+    <h2 id="drawerTitle">Aims & Scope</h2>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">✕</button>
+  </div>
+
+  <div class="drawer-body">
+    <div id="drawerContentEN">
+      <p>
+        Rather than focusing solely on polished success, <b>Scientific Horizons of Innovative Technologies (S.H.I.T.)</b>  aims to broaden the scientific horizon of researchers by presenting original ideas, unexpected observations, methodological reflections, and even well-documented missteps that may illuminate new directions or help others avoid hidden pitfalls.
+      </p>
+
+      <p> 
+        <b>In reality, S.H.I.T. is a serious-looking journal for <em>insignificant</em> works: meaningless discoveries, shallow thinkings, dumb recordings, stupid detours, unuseful struggles, occasional madness, daily unconsciousness...</b>
+      </p>
+
+      <p>  
+        We welcome submissions from <b>all</b> fields of <b>science, engineering, and technology</b>. 
+      </p>
+
+      <h3>Sections</h3>
+      <ul>
+        <li><b>Discoveries</b> — novel scientificfindings, technical advances, and valuable negative or unexpected results.</li>
+        <li><b>Reflections</b> — methodology, lessons learned, research philosophy, and practical insights from real scientific practice.</li>
+      </ul>
+    </div>
+
+    <div id="drawerContentZH" style="display:none;">
+      <p>
+        与仅关注经过精心修饰的成功不同，<b>《科学视野与创新技术》 (S.H.I.T.)</b> 
+        旨在通过呈现原创思想、意外观察、方法论反思，乃至被充分记录的研究弯路，
+        来拓宽研究者的科学视野，从而启发新的方向，或帮助他人避开潜在的陷阱。
+        </p>
+
+        <p>
+        <b>实际上，S.H.I.T. 其实是一本看似严肃，却只收录<em>微不足道</em>之作的期刊：
+        何意味的发现、肤浅的思考、无端的联想、掉入的天坑、无能的狂怒、不时的发癫，以及日常的神游……</b>
+        </p>
+
+        <p>
+        我们欢迎来自<b>所有</b><b>科学、工程与技术</b>领域的投稿。
+        </p>
+
+        <h3>栏目</h3>
+        <ul>
+          <li><b>Discoveries（发现）</b> —— 科学发现、技术进展，以及可能有价值的实验失败。</li>
+          <li><b>Reflections（思考）</b> —— 方法论、经验教训、科研理念，以及源于真实科研实践的洞见。</li>
+        </ul>
+    </div>
+  </div>
+</aside>
+
+  <script>
+    // Demo data for tabs (replace with real data later)
+    const data = {
+      latest: [
+        {
+          tag: "Open access",
+          title: "EXAMPLE A: A reproducible detour: when the obvious baseline silently fails",
+          desc: "A brief report documenting an unexpectedly fragile assumption and a practical checklist to avoid it.",
+          meta: "Research note · 2026 · In press",
+          badge: "PDF"
+        },
+        {
+          tag: "Open access",
+          title: "EXAMPLE B: Negative results that matter: an experiment worth not repeating",
+          desc: "A carefully controlled null result with implications for experimental design and interpretation.",
+          meta: "Scientific Reflections · 2026 · Online",
+          badge: "HTML"
+        }
+      ],
+      cited: [
+        {
+          tag: "Open access",
+          title: "EXAMPLE C: Methodological reflections on reproducibility under resource constraints",
+          desc: "A perspective on minimal reporting standards and practical reproducibility habits.",
+          meta: "Scientific Reflections · 2026 · (placeholder)",
+          badge: "Cited"
+        }
+      ],
+      downloaded: [
+        {
+          tag: "Open access",
+          title: "EXAMPLE D: Checklist-first workflows: reducing hidden pitfalls in iterative research",
+          desc: "A short methodology paper proposing a lightweight protocol for faster, safer iteration.",
+          meta: "Methods · 2026 · (placeholder)",
+          badge: "Top"
+        }
+      ],
+      popular: [
+        {
+          tag: "Open access",
+          title: "EXAMPLE E: From idea to insight: documenting the 'why' behind decisions",
+          desc: "A practical template for recording decisions, alternatives, and reasons—so future you doesn’t suffer.",
+          meta: "Scientific Reflections · 2026 · (placeholder)",
+          badge: "Hot"
+        }
+      ]
+    };
+
+    function render(tabKey){
+      const container = document.getElementById('articleContainer');
+      container.innerHTML = '';
+      (data[tabKey] || []).forEach(item => {
+        const el = document.createElement('div');
+        el.className = 'article';
+        el.innerHTML = `
+          <div class="left">
+            <span class="tag"><span class="dot"></span>${item.tag}</span>
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+            <div class="meta">${item.meta}</div>
+          </div>
+          <div class="right">
+            <div class="mini">${item.badge}</div>
+            <div style="opacity:.8">View details →</div>
+          </div>
+        `;
+        container.appendChild(el);
+      });
+    }
+
+    // Tabs
+    document.querySelectorAll('.tab').forEach(t => {
+      t.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(x => {
+          x.classList.remove('active');
+          x.setAttribute('aria-selected','false');
+        });
+        t.classList.add('active');
+        t.setAttribute('aria-selected','true');
+        render(t.dataset.tab);
+      });
+    });
+
+    // Init
+    render('latest');
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- Drawer open/close ---
+    function openDrawer(){
+      const d = document.getElementById('aimsDrawer');
+      const o = document.getElementById('drawerOverlay');
+      d.classList.add('open');
+      o.style.display = 'block';
+      d.setAttribute('aria-hidden','false');
+      document.body.classList.add('drawer-lock');
+    }
+    function closeDrawer(){
+      const d = document.getElementById('aimsDrawer');
+      const o = document.getElementById('drawerOverlay');
+      d.classList.remove('open');
+      o.style.display = 'none';
+      d.setAttribute('aria-hidden','true');
+      document.body.classList.remove('drawer-lock');
+    }
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeDrawer();
+    });
+
+    // --- Language toggle (EN <-> 中文) ---
+    function toggleLang(){
+      currentLang = (currentLang === 'en') ? 'zh' : 'en';
+
+      // Button label
+      const btn = document.getElementById('langBtn');
+      if(btn) btn.textContent = (currentLang === 'en') ? '中文' : 'EN';
+
+      // Swap drawer content
+      const en = document.getElementById('drawerContentEN');
+      const zh = document.getElementById('drawerContentZH');
+      if(en && zh){
+        en.style.display = (currentLang === 'en') ? '' : 'none';
+        zh.style.display = (currentLang === 'en') ? 'none' : '';
+      }
+
+      // Optional: also swap a few visible texts on page (minimal)
+      // You can expand this later.
+    }
+
+    // Language Dictionary
+    const I18N = {
+      en: {
+        upleftTitle: "Scientific Horizons and Innovative Technologies",
+        heroTitle: "Scientific Horizons and Innovative Technologies (S.H.I.T.)",
+        heroSub: "SHIT is an international academic journal dedicated to the dissemination of innovative findings, unconventional explorations, instructive detours, and reflective insights encountered throughout the scientific research process.",
+        aboutTitle: "About the journal",
+        aboutText: "Rather than focusing solely on polished success, Scientific Horizons of Innovative Technologies (S.H.I.T.) aims to broaden the scientific horizon of researchers by presenting original ideas, unexpected observations, methodological reflections, and even well-documented missteps that may illuminate new directions or help others avoid hidden pitfalls...",
+        viewScope: "View full aims & scope →",
+        submitBtn: "Submit your article ↗",
+        guideBtn: "Guide for authors",
+        daoHangXiaoZi: "Open Access · No APC · Irregular issues",
+        OA: "Open Access",
+        noAPC: "No Article Processing Charges",
+        scienceTech: "Science · Engineering · Technology",
+        impactFactor: "114 514",
+        SCI: "SCIE",
+        publishingCadenceValue: "Rolling",
+        publishingCadence: "Publishing cadence",
+        submission: "Submission guidelines",
+        submitText: "Please send a single archive containing the editable source files (e.g., LaTeX/Word + figures) to:",
+        submitMuted: "Rolling submissions · Editorial screening · Fast review",
+        publishingOptions: "Article publishing options",
+        pubAPC: "Free of Article Processing Charge (APC)",
+        pubAccess: "All published content is freely accessible.",
+        subscription: "Subscription",
+        subsNA: "Not applicable",
+        subscriptionMuted: "SHIT is fully open access by design",
+        timeDecision: "Submission to first decision",
+        timeReview: "Review time",
+        timeAcceptance: "Submission to acceptance",
+        timePublication: "Acceptance to online publication",
+        editorChef: "Editors-in-Chief",
+        atc: "Articles",
+        atcLatest: "Latest published",
+        atcCited: "Top cited",
+        atcDownloaded: "Most downloaded",
+        atcPopular: "Most popular",
+        declaration: "Declaration: S.H.I.T. is, in essence, a piece of shit within the academic universe. None of the articles herein are intended to be read with logic, rigor, or full consciousness. The site assumes no responsibility for any misunderstanding, misapplication, or existential confusion arising from its content. Readers are kindly advised not to cite these works, and, if possible, not to reveal them to their supervisors. All copyrights of the content remain with the site.",
+        footDiscoveries: "Discoveries",
+        footReflections: "Reflections"
+      },
+      zh: {
+        upleftTitle: "科学视野与创新技术",
+        heroTitle: "《科学视野与创新技术》（S.H.I.T.）",
+        heroSub: "《科学视野与创新技术》是一本开放获取的国际学术期刊，致力于传播在科学研究过程中产生的创新性发现、非常规探索、具有启示意义的曲折经历，以及深刻的科学反思。",
+        aboutTitle: "关于本期刊",
+        aboutText: "与仅关注经过精心修饰的成功不同，《科学视野与创新技术》 (S.H.I.T.) 旨在通过呈现原创思想、意外观察、方法论反思，乃至被充分记录的研究弯路，来拓宽研究者的科学视野，从而启发新的方向，或帮助他人避开潜在的陷阱。",
+        viewScope: "查看完整宗旨与范围 →",
+        submitBtn: "投稿 ↗",
+        guideBtn: "作者指南",
+        daoHangXiaoZi: "开放获取 · 免版面费 · 不定期出版",
+        OA: "开放获取",
+        noAPC: "免版面费",
+        scienceTech: "科学 · 工程 · 技术",
+        impactFactor: "影响因子",
+        SCI: "SCI分区",
+        publishingCadenceValue: "滚动出版",
+        publishingCadence: "发表周期",
+        submission: "投稿指南",
+        submitText: "请将包含可编辑源文件（例如 LaTeX/Word + 图表）的压缩包发送至：",
+        submitMuted: "滚动投稿 · 编辑筛选 · 快速审稿",
+        publishingOptions: "文章发表选项",
+        pubAPC: "免版面费 (APC)",
+        pubAccess: "所有已发表内容均可免费获取",
+        subscription: "订阅",
+        subsNA: "不适用",
+        subscriptionMuted: "S.H.I.T.的初衷就是完全开放获取的期刊",
+        timeDecision: "投稿到初审决定",
+        timeReview: "投稿到审稿结束",
+        timeAcceptance: "投稿到接收",
+        timePublication: "接收到在线发表",
+        editorChef: "主编",
+        atc: "文章",
+        atcLatest: "最新发表",
+        atcCited: "引用最多",
+        atcDownloaded: "下载最多",
+        atcPopular: "最受欢迎",
+        declaration: "声明：S.H.I.T.，正如其名，本质上是学术界的一坨屎。请勿带着脑子或在完全清醒的情况下阅读本期刊内的任何内容。对于可能使读者产生的任何误解、误用，本期刊不承担责任。我们善意提醒：请不要引用这些文章，如果可能的话，也不要将它们展示给导师。所有内容的版权均归网站所有。",
+        footDiscoveries: "发现",
+        footReflections: "思考"
+      }
+    };
+
+    let currentLang = "en";
+
+    function applyLang(lang){
+      currentLang = lang;
+      document.documentElement.lang = (lang === "zh") ? "zh" : "en";
+
+      // 切换按钮显示文字
+      const btn = document.getElementById("langBtn");
+      if(btn) btn.textContent = (lang === "en") ? "中文" : "EN";
+
+      // 替换所有带 data-i18n 的元素文本
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        const val = I18N[lang][key];
+        if(val !== undefined) el.textContent = val;
+      });
+
+      // 如果你还做了抽屉双语言内容块，也可以顺便切：
+      const enBlock = document.getElementById("drawerContentEN");
+      const zhBlock = document.getElementById("drawerContentZH");
+      if(enBlock && zhBlock){
+        enBlock.style.display = (lang === "en") ? "" : "none";
+        zhBlock.style.display = (lang === "en") ? "none" : "";
+      }
+    }
+
+    function toggleLang(){
+      applyLang(currentLang === "en" ? "zh" : "en");
+    }
+
+    // 可选：记住用户选择（下次打开仍然是上次语言）
+    (function initLang(){
+      const saved = localStorage.getItem("shit_lang");
+      if(saved === "en" || saved === "zh") currentLang = saved;
+      applyLang(currentLang);
+
+      // 每次切换时保存
+      const oldToggle = toggleLang;
+      window.toggleLang = function(){
+        oldToggle();
+        localStorage.setItem("shit_lang", currentLang);
+      };
+    })();
+  </script>
+</body>
+</html>
